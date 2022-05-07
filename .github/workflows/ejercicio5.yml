@@ -8,4 +8,6 @@ jobs:
     
     steps:
     - name: Informacion Nodo
-      run: ip add 
+      run: ip add
+           free -m
+           df -h
