@@ -1,0 +1,86 @@
+name: Solucion de Ejercicio 3
+
+on: 
+  push: 
+    branches:
+      - main2
+ 
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:    
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la configuracion
+        run: sh ./setup_server.sh      
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la compilacion
+        run: sh ./build_server.sh  
+  prueba01:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la prueba 01
+        run: sh ./prueba01.sh 
+  prueba02:
+    needs: prueba01
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la compilacion
+        run: sh ./prueba02.sh 
+  despliegue:
+    needs: prueba02
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de las pruebas
+        run: sh ./despliegue.sh
+        
+  setup:
+   runs-on: ubuntu-latest
+   steps:    
+     - name: Check out del repositorio
+       uses: actions/checkout@v2
+     - name: Ejecucion de la configuracion
+       run: sh ./setup_server.sh      
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la compilacion
+        run: sh ./build_server.sh  
+  prueba01:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la prueba 01
+        run: sh ./prueba01.sh 
+  prueba02:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la compilacion
+        run: sh ./prueba02.sh 
+  despliegue:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de las pruebas
+        run: sh ./despliegue.sh
+    
+      
+   
