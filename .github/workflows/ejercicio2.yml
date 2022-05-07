@@ -3,7 +3,7 @@ name: Solucion de Ejercicio 2
 on: 
   push: 
     branches:
-      - main
+      - main2
  
 jobs:
   setup:
